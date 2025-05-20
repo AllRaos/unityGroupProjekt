@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fisherman_death_0: 6721524419103767080
+      Fisherman_death_1: 4372451345685801891
+      Fisherman_death_2: -6525569443683849196
+      Fisherman_death_3: -2497985337616040016
+      Fisherman_death_4: 3557534236232017871
+      Fisherman_death_5: -562178837420150893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

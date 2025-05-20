@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fisherman_attack_0: 3007105026850010058
+      Fisherman_attack_1: 2011205988998165482
+      Fisherman_attack_2: 2458674782183818030
+      Fisherman_attack_3: 9001503127234951197
+      Fisherman_attack_4: 2133179836402571445
+      Fisherman_attack_5: -2654005756491808428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fisherman_hurt_0: -6513054836155193435
+      Fisherman_hurt_1: -4595913672153275926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

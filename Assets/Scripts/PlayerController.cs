@@ -15,15 +15,31 @@ public class PlayerController : MonoBehaviour
 
     public List<Quest> activeQuests = new List<Quest>();
 
+    public Inventory inventory;
+    public GameObject inventoryPanel;
+    public GameObject backgroundShadow;
+    private bool isInventoryOpen = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        inventory = new Inventory();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isInventoryOpen = !isInventoryOpen;
+            inventoryPanel.SetActive(isInventoryOpen);
+            backgroundShadow.SetActive(isInventoryOpen);
+            if (isInventoryOpen)
+            {
+                InventoryUI.instance.UpdateInventoryUI(inventory.items);
+            }
+        }
         if (!isDialogueActive)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -98,7 +114,7 @@ public class PlayerController : MonoBehaviour
         if (quest != null)
         {
             quest.status = QuestStatus.Finished;
-            Debug.Log("����� ���������: " + quest.questName);
+            Debug.Log("Cvest is: " + quest.questName);
         }
     }
 }
