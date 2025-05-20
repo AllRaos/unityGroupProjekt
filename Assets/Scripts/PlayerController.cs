@@ -4,21 +4,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 3f;
+
     private Rigidbody2D rb;
     private Animator animator;
     private Vector2 movement;
     private SpriteRenderer spriteRenderer;
 
-    public GameObject InteractionPrompt;
-    private NPCInteraction currentNPC; // Посилання на NPC, з яким можна взаємодіяти
-    private bool isDialogueActive = false; // Чи відкрите діалогове вікно
-    public List<Quest> activeQuests = new List<Quest>(); // Список активних квестів
+    private NPCInteraction currentNPC;
+    private bool isDialogueActive = false;
+
+    public List<Quest> activeQuests = new List<Quest>();
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        InteractionPrompt.SetActive(false);
     }
 
     void Update()
@@ -47,8 +48,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            movement.x = 0;
-            movement.y = 0;
+            movement = Vector2.zero;
         }
     }
 
@@ -56,18 +56,12 @@ public class PlayerController : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("NPC"))
         {
             currentNPC = other.GetComponent<NPCInteraction>();
-            if (currentNPC != null)
-            {
-                InteractionPrompt.SetActive(true);
-                Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(other.transform.position);
-                playerScreenPos.y += 150f;
-                InteractionPrompt.transform.position = playerScreenPos;
-            }
         }
     }
 
@@ -75,7 +69,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("NPC"))
         {
-            InteractionPrompt.SetActive(false);
             currentNPC = null;
         }
     }
@@ -84,13 +77,13 @@ public class PlayerController : MonoBehaviour
     {
         isDialogueActive = true;
         rb.linearVelocity = Vector2.zero;
-        InteractionPrompt.SetActive(false);
 
         Quest quest = currentNPC.GetQuest();
         if (!activeQuests.Exists(q => q.questName == quest.questName))
         {
-            activeQuests.Add(quest); // Додаємо квест, якщо його ще немає
+            activeQuests.Add(quest);
         }
+
         DialogueManager.Instance.StartDialogue(quest, this, currentNPC);
     }
 
@@ -105,8 +98,7 @@ public class PlayerController : MonoBehaviour
         if (quest != null)
         {
             quest.status = QuestStatus.Finished;
-            Debug.Log("Квест завершено: " + quest.questName);
-            // Тут можна додати нагороду
+            Debug.Log("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + quest.questName);
         }
     }
 }

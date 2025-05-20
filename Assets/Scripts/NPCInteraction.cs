@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-    public Quest quest; // Унікальний квест для цього NPC
+    public Quest quest;
+    public GameObject interactionPromptPrefab;
+
+    private GameObject promptInstance;
     private bool playerInRange = false;
-    public GameObject player;
 
     void Start()
     {
-        // Ініціалізація квестів у інспекторі Unity або тут
-        // Наприклад, для першого NPC:
-        // quest = new Quest("Зловити 3 рибини", "Зловити та принести 3 будь-які рибини", new CatchAnyFishCondition(3));
+        if (interactionPromptPrefab != null)
+        {
+            promptInstance = Instantiate(interactionPromptPrefab, transform);
+            promptInstance.transform.localPosition = new Vector3(-0.1f, 0.3f, 0);
+            promptInstance.SetActive(false);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -18,7 +23,8 @@ public class NPCInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            player = other.gameObject;
+            if (promptInstance != null)
+                promptInstance.SetActive(true);
         }
     }
 
@@ -27,7 +33,8 @@ public class NPCInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            player = null;
+            if (promptInstance != null)
+                promptInstance.SetActive(false);
         }
     }
 
