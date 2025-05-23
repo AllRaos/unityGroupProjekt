@@ -48,7 +48,14 @@ public class DialogueManager : MonoBehaviour
 
         bool alreadyTaken = player.activeQuests.Exists(q => q.questName == quest.questName && q.status != QuestStatus.Finished);
 
-        if (alreadyTaken)
+        if (npc.isFinalNPC && !AllOtherQuestsCompleted(player, quest))
+        {
+            questDescriptionText.text = "Завершіть усі попередні завдання, щоб отримати це.";
+            acceptButton.gameObject.SetActive(false);
+            declineButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(true);
+        }
+        else if (alreadyTaken)
         {
             questDescriptionText.text = "Виконайте активне завдання, щоб отримати нове.";
             acceptButton.gameObject.SetActive(false);
@@ -107,4 +114,17 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         player.EndDialogue();
     }
+    private bool AllOtherQuestsCompleted(PlayerController player, Quest finalQuest)
+    {
+        int finishedCount = 0;
+        foreach (var q in player.activeQuests)
+        {
+            if (q.questName != finalQuest.questName && q.status != QuestStatus.Finished)
+            {
+                return false;
+            }
+        }
+        return finishedCount >= 3;
+    }
+
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -20,6 +21,14 @@ public class PlayerController : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject backgroundShadow;
     private bool isInventoryOpen = false;
+
+    public enum FishType { Plotva, Shchuka, Okun, Golavl }
+    public enum FishSize { Small, Medium, Large }
+    public bool isFishing = false;
+    public float fishingTimer = 0f;
+    public FishType currentFishType;
+    public FishSize currentFishSize;
+    public bool isNearWater = false;
 
     void Awake()
     {
@@ -43,6 +52,19 @@ public class PlayerController : MonoBehaviour
             if (isInventoryOpen)
             {
                 InventoryUI.instance.UpdateInventoryUI(inventory.items);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && !isFishing && IsNearWater())
+        {
+            StartFishing();
+        }
+
+        if (isFishing)
+        {
+            fishingTimer += Time.deltaTime;
+            if (fishingTimer >= Random.Range(2f, 4f))
+            {
+                CatchFish();
             }
         }
 
@@ -73,7 +95,55 @@ public class PlayerController : MonoBehaviour
             movement = Vector2.zero;
         }
     }
+    private bool IsNearWater()
+    {
+        return isNearWater;
+    }
 
+    private void StartFishing()
+    {
+        isFishing = true;
+        fishingTimer = 0f;
+        animator.SetTrigger("Fish"); 
+    }
+
+    private void CatchFish()
+    {
+        isFishing = false;
+        currentFishType = (FishType)Random.Range(0, 4); 
+        currentFishSize = (FishSize)Random.Range(0, 3); 
+        StartFishingGame(currentFishType, currentFishSize);
+        animator.SetTrigger("Hook");
+    }
+    private void StartFishingGame(FishType type, FishSize size)
+    {
+        switch (type)
+        {
+            case FishType.Plotva:
+                Debug.Log($"Запуск міні-гри для Плотви, складність: {size}");
+                GetComponent<FishingGame>().StartMiniGame(type, size);
+
+                break;
+            case FishType.Shchuka:
+                Debug.Log($"Запуск міні-гри для Щуки, складність: {size}");
+                GetComponent<FishingGame>().StartMiniGame(type, size);
+                break;
+            case FishType.Okun:
+                Debug.Log($"Запуск міні-гри для Окуня, складність: {size}");
+                GetComponent<FishingGame>().StartMiniGame(type, size);
+                break;
+            case FishType.Golavl:
+                Debug.Log($"Запуск міні-гри для Голавля, складність: {size}");
+                GetComponent<FishingGame>().StartMiniGame(type, size);
+                break;
+        }
+    }
+    public void OnMiniGameSuccess()
+    {
+        Item fish = new Item(currentFishType.ToString(), "риба", currentFishSize.ToString(), 1);
+        inventory.AddItem(fish);
+        Debug.Log($"Риба {currentFishType} ({currentFishSize}) додана до інвентарю!");
+    }
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
@@ -85,6 +155,11 @@ public class PlayerController : MonoBehaviour
         {
             currentNPC = other.GetComponent<NPCInteraction>();
         }
+        else if (other.CompareTag("Water"))
+        {
+            isNearWater = true;
+            Debug.Log("You can start fishing");
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -92,6 +167,11 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("NPC"))
         {
             currentNPC = null;
+        }
+        else if (other.CompareTag("Water"))
+        {
+            isNearWater = false;
+            Debug.Log("You can not start fishing");
         }
     }
 
@@ -119,3 +199,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+

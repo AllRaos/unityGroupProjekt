@@ -5,6 +5,8 @@ public class NPCInteraction : MonoBehaviour
     public Quest quest;
     public GameObject interactionPromptPrefab;
 
+    public bool isFinalNPC = false;
+
     private GameObject promptInstance;
     private bool playerInRange = false;
 

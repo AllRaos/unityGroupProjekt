@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      old man idle state no line-Sheet_0: -966459853123484540
+      old man idle state no line-Sheet_1: 2283758295844670117
+      old man idle state no line-Sheet_2: 3017749654849987385
+      old man idle state no line-Sheet_3: 5994256500826532481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
