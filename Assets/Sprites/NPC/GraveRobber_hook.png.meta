@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 2e2c2934e18259d40b305de2f8af0b21
+guid: 02d610481297a5f4ea1a9bacfdcb5a47
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069303113167828489
-    second: SteamMan_fish_0
+      213: 1892410129876032624
+    second: GraveRobber_hook_0
   - first:
-      213: -4402444143473462226
-    second: SteamMan_fish_1
+      213: -8241011632711934224
+    second: GraveRobber_hook_1
   - first:
-      213: -4997155661096840464
-    second: SteamMan_fish_2
+      213: 8241315802905573030
+    second: GraveRobber_hook_2
   - first:
-      213: -8612171625068732107
-    second: SteamMan_fish_3
+      213: 4677536630755320115
+    second: GraveRobber_hook_3
+  - first:
+      213: -6401501551327569281
+    second: GraveRobber_hook_4
+  - first:
+      213: 4520304067602641471
+    second: GraveRobber_hook_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamMan_fish_0
+      name: GraveRobber_hook_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 8
         y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f98d30f06ee687c0800000000000000
-      internalID: -4069303113167828489
+      spriteID: 07c9c989cf0334a10800000000000000
+      internalID: 1892410129876032624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_1
+      name: GraveRobber_hook_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 56
         y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e24f3cc606067e2c0800000000000000
-      internalID: -4402444143473462226
+      spriteID: 0fed752359b02ad80800000000000000
+      internalID: -8241011632711934224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_2
+      name: GraveRobber_hook_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 104
         y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f29dfcf66986aab0800000000000000
-      internalID: -4997155661096840464
+      spriteID: 6a6fff1fe090f5270800000000000000
+      internalID: 8241315802905573030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_3
+      name: GraveRobber_hook_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 152
         y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5316417498b6b7880800000000000000
-      internalID: -8612171625068732107
+      spriteID: 3316c0478c2f9e040800000000000000
+      internalID: 4677536630755320115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GraveRobber_hook_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a1204714c4927a0800000000000000
+      internalID: -6401501551327569281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GraveRobber_hook_5
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 0
+        width: 27
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f32753299985bbe30800000000000000
+      internalID: 4520304067602641471
       vertices: []
       indices: 
       edges: []
@@ -200,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ef681169e535749bc117447d7fa3cc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -209,11 +259,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SteamMan_fish_0: -4069303113167828489
-      SteamMan_fish_1: -4402444143473462226
-      SteamMan_fish_2: -4997155661096840464
-      SteamMan_fish_3: -8612171625068732107
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

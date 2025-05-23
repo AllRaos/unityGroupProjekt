@@ -10,6 +10,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text questDescriptionText;
     public Button acceptButton;
     public Button declineButton;
+    public Button exitButton;
+
     private Quest currentQuest;
     private PlayerController player;
     private NPCInteraction currentNPC;
@@ -32,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         acceptButton.onClick.AddListener(AcceptQuest);
         declineButton.onClick.AddListener(DeclineQuest);
+        exitButton.onClick.AddListener(CloseDialogue);
     }
 
     public void StartDialogue(Quest quest, PlayerController playerRef, NPCInteraction npc)
@@ -42,39 +45,65 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         questNameText.text = quest.questName;
-        questDescriptionText.text = quest.questDescription;
 
-        if (quest.status == QuestStatus.Active)
+        bool alreadyTaken = player.activeQuests.Exists(q => q.questName == quest.questName && q.status != QuestStatus.Finished);
+
+        if (alreadyTaken)
         {
-            acceptButton.gameObject.SetActive(true);
-            declineButton.gameObject.SetActive(true);
+            questDescriptionText.text = "Виконайте активне завдання, щоб отримати нове.";
+            acceptButton.gameObject.SetActive(false);
+            declineButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(true);
         }
         else if (quest.status == QuestStatus.Completed)
         {
             acceptButton.gameObject.SetActive(false);
             declineButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(false);
+
             player.TryCompleteQuest(currentNPC);
             dialoguePanel.SetActive(false);
             player.EndDialogue();
         }
         else if (quest.status == QuestStatus.Finished)
         {
-            questDescriptionText.text = "????? ??? ?????????!";
+            questDescriptionText.text = "Цей квест уже завершено!";
             acceptButton.gameObject.SetActive(false);
             declineButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            questDescriptionText.text = quest.questDescription;
+            acceptButton.gameObject.SetActive(true);
+            declineButton.gameObject.SetActive(true);
+            exitButton.gameObject.SetActive(false);
         }
     }
 
     void AcceptQuest()
     {
-        Debug.Log("????? ????????: " + currentQuest.questName);
+        if (!player.activeQuests.Exists(q => q.questName == currentQuest.questName))
+        {
+            currentQuest.status = QuestStatus.Active;
+            player.activeQuests.Add(currentQuest);
+
+            QuestLogUI logUI = FindAnyObjectByType<QuestLogUI>();
+            if (logUI != null) logUI.RefreshUI();
+        }
+
         dialoguePanel.SetActive(false);
         player.EndDialogue();
     }
 
     void DeclineQuest()
     {
-        Debug.Log("????? ????????");
+        dialoguePanel.SetActive(false);
+        player.EndDialogue();
+    }
+
+    void CloseDialogue()
+    {
         dialoguePanel.SetActive(false);
         player.EndDialogue();
     }

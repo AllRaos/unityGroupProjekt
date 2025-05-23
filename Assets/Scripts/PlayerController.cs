@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
     public float moveSpeed = 3f;
 
     private Rigidbody2D rb;
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour
     public GameObject backgroundShadow;
     private bool isInventoryOpen = false;
 
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,6 +45,7 @@ public class PlayerController : MonoBehaviour
                 InventoryUI.instance.UpdateInventoryUI(inventory.items);
             }
         }
+
         if (!isDialogueActive)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -95,11 +101,6 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
 
         Quest quest = currentNPC.GetQuest();
-        if (!activeQuests.Exists(q => q.questName == quest.questName))
-        {
-            activeQuests.Add(quest);
-        }
-
         DialogueManager.Instance.StartDialogue(quest, this, currentNPC);
     }
 
@@ -114,7 +115,7 @@ public class PlayerController : MonoBehaviour
         if (quest != null)
         {
             quest.status = QuestStatus.Finished;
-            Debug.Log("Cvest is: " + quest.questName);
+            Debug.Log("����� ���������: " + quest.questName);
         }
     }
 }

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2e2c2934e18259d40b305de2f8af0b21
+guid: 08047582657336347935c92c99cf9a90
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069303113167828489
-    second: SteamMan_fish_0
+      213: -966459853123484540
+    second: old man idle state no line-Sheet_0
   - first:
-      213: -4402444143473462226
-    second: SteamMan_fish_1
+      213: 2283758295844670117
+    second: old man idle state no line-Sheet_1
   - first:
-      213: -4997155661096840464
-    second: SteamMan_fish_2
+      213: 3017749654849987385
+    second: old man idle state no line-Sheet_2
   - first:
-      213: -8612171625068732107
-    second: SteamMan_fish_3
+      213: 5994256500826532481
+    second: old man idle state no line-Sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamMan_fish_0
+      name: old man idle state no line-Sheet_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 17
+        y: 5
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f98d30f06ee687c0800000000000000
-      internalID: -4069303113167828489
+      spriteID: 48406e452e17692f0800000000000000
+      internalID: -966459853123484540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_1
+      name: old man idle state no line-Sheet_1
       rect:
         serializedVersion: 2
-        x: 54
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 77
+        y: 5
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e24f3cc606067e2c0800000000000000
-      internalID: -4402444143473462226
+      spriteID: 5aa4ca8f11a81bf10800000000000000
+      internalID: 2283758295844670117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_2
+      name: old man idle state no line-Sheet_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 137
+        y: 5
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f29dfcf66986aab0800000000000000
-      internalID: -4997155661096840464
+      spriteID: 9332466825331e920800000000000000
+      internalID: 3017749654849987385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_3
+      name: old man idle state no line-Sheet_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 197
+        y: 5
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5316417498b6b7880800000000000000
-      internalID: -8612171625068732107
+      spriteID: 18a67505780ef2350800000000000000
+      internalID: 5994256500826532481
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ef681169e535749bc117447d7fa3cc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -209,11 +209,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SteamMan_fish_0: -4069303113167828489
-      SteamMan_fish_1: -4402444143473462226
-      SteamMan_fish_2: -4997155661096840464
-      SteamMan_fish_3: -8612171625068732107
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

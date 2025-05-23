@@ -13,7 +13,7 @@ public class NPCInteraction : MonoBehaviour
         if (interactionPromptPrefab != null)
         {
             promptInstance = Instantiate(interactionPromptPrefab, transform);
-            promptInstance.transform.localPosition = new Vector3(-0.1f, 0.3f, 0);
+            promptInstance.transform.localPosition = new Vector3(0, 0.3f, 0);
             promptInstance.SetActive(false);
         }
     }

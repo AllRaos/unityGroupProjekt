@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2e2c2934e18259d40b305de2f8af0b21
+guid: a61dc439dfb7e834e8d1d56f50338558
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069303113167828489
-    second: SteamMan_fish_0
+      213: -4396964800042706981
+    second: GraveRobber_row_0
   - first:
-      213: -4402444143473462226
-    second: SteamMan_fish_1
+      213: -6707761352173187690
+    second: GraveRobber_row_1
   - first:
-      213: -4997155661096840464
-    second: SteamMan_fish_2
+      213: -4981285792945047774
+    second: GraveRobber_row_2
   - first:
-      213: -8612171625068732107
-    second: SteamMan_fish_3
+      213: 6293699888230069020
+    second: GraveRobber_row_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamMan_fish_0
+      name: GraveRobber_row_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 8
+        y: 1
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f98d30f06ee687c0800000000000000
-      internalID: -4069303113167828489
+      spriteID: bd7de8b7fc7daf2c0800000000000000
+      internalID: -4396964800042706981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_1
+      name: GraveRobber_row_1
       rect:
         serializedVersion: 2
-        x: 54
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 52
+        y: 1
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e24f3cc606067e2c0800000000000000
-      internalID: -4402444143473462226
+      spriteID: 69d8f95e69e39e2a0800000000000000
+      internalID: -6707761352173187690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_2
+      name: GraveRobber_row_2
       rect:
         serializedVersion: 2
-        x: 102
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 104
+        y: 3
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f29dfcf66986aab0800000000000000
-      internalID: -4997155661096840464
+      spriteID: 2277fca96faeedab0800000000000000
+      internalID: -4981285792945047774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_3
+      name: GraveRobber_row_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 40
-        height: 37
-      alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+        x: 152
+        y: 3
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5316417498b6b7880800000000000000
-      internalID: -8612171625068732107
+      spriteID: c137ed0f3b6b75750800000000000000
+      internalID: 6293699888230069020
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ef681169e535749bc117447d7fa3cc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -209,11 +209,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SteamMan_fish_0: -4069303113167828489
-      SteamMan_fish_1: -4402444143473462226
-      SteamMan_fish_2: -4997155661096840464
-      SteamMan_fish_3: -8612171625068732107
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

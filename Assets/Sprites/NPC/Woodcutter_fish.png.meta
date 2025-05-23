@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2e2c2934e18259d40b305de2f8af0b21
+guid: 95f2350a57faae84f9b0fd438e24fc43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069303113167828489
-    second: SteamMan_fish_0
+      213: 7477589508019668047
+    second: Woodcutter_fish_0
   - first:
-      213: -4402444143473462226
-    second: SteamMan_fish_1
+      213: -8072578389460396848
+    second: Woodcutter_fish_1
   - first:
-      213: -4997155661096840464
-    second: SteamMan_fish_2
+      213: 6763898112917353085
+    second: Woodcutter_fish_2
   - first:
-      213: -8612171625068732107
-    second: SteamMan_fish_3
+      213: -1551157680222407114
+    second: Woodcutter_fish_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamMan_fish_0
+      name: Woodcutter_fish_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 5
         y: 0
-        width: 40
-        height: 37
+        width: 41
+        height: 33
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f98d30f06ee687c0800000000000000
-      internalID: -4069303113167828489
+      spriteID: f4443b12a0cb5c760800000000000000
+      internalID: 7477589508019668047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_1
+      name: Woodcutter_fish_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 52
         y: 0
-        width: 40
-        height: 37
+        width: 42
+        height: 33
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e24f3cc606067e2c0800000000000000
-      internalID: -4402444143473462226
+      spriteID: 0d4d7b2a9b078ff80800000000000000
+      internalID: -8072578389460396848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_2
+      name: Woodcutter_fish_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 100
         y: 0
-        width: 40
-        height: 37
+        width: 42
+        height: 33
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f29dfcf66986aab0800000000000000
-      internalID: -4997155661096840464
+      spriteID: d72bf5d3f713edd50800000000000000
+      internalID: 6763898112917353085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_3
+      name: Woodcutter_fish_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 149
         y: 0
-        width: 40
-        height: 37
+        width: 41
+        height: 33
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5316417498b6b7880800000000000000
-      internalID: -8612171625068732107
+      spriteID: 63679b7ee4e297ae0800000000000000
+      internalID: -1551157680222407114
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ef681169e535749bc117447d7fa3cc
+    spriteID: 07f0755fb91554b4eac3a3ce79bfa848
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SteamMan_fish_0: -4069303113167828489
-      SteamMan_fish_1: -4402444143473462226
-      SteamMan_fish_2: -4997155661096840464
-      SteamMan_fish_3: -8612171625068732107
+      Woodcutter_fish_0: 7477589508019668047
+      Woodcutter_fish_1: -8072578389460396848
+      Woodcutter_fish_2: 6763898112917353085
+      Woodcutter_fish_3: -1551157680222407114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

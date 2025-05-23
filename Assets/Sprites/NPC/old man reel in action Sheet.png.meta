@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: 2e2c2934e18259d40b305de2f8af0b21
+guid: 670fb169004f88b4f9d173772e357bc8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069303113167828489
-    second: SteamMan_fish_0
+      213: -3415308947415476418
+    second: old man reel in action Sheet_0
   - first:
-      213: -4402444143473462226
-    second: SteamMan_fish_1
+      213: 1349964418662910959
+    second: old man reel in action Sheet_1
   - first:
-      213: -4997155661096840464
-    second: SteamMan_fish_2
+      213: 1155703049820106284
+    second: old man reel in action Sheet_2
   - first:
-      213: -8612171625068732107
-    second: SteamMan_fish_3
+      213: -5621401661028353777
+    second: old man reel in action Sheet_3
+  - first:
+      213: 5175405878567421960
+    second: old man reel in action Sheet_4
+  - first:
+      213: 6248890738797120389
+    second: old man reel in action Sheet_5
+  - first:
+      213: -2056259147968561004
+    second: old man reel in action Sheet_6
+  - first:
+      213: 3669136261354054671
+    second: old man reel in action Sheet_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,89 +121,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamMan_fish_0
+      name: old man reel in action Sheet_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 40
-        height: 37
+        width: 60
+        height: 100
       alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+      pivot: {x: 0.5, y: 0.7}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7f98d30f06ee687c0800000000000000
-      internalID: -4069303113167828489
+      spriteID: 26a65b23e51a1c54fb228423eee0751c
+      internalID: 416530049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_1
+      name: old man reel in action Sheet_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 60
         y: 0
-        width: 40
-        height: 37
+        width: 60
+        height: 100
       alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+      pivot: {x: 0.5, y: 0.7}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e24f3cc606067e2c0800000000000000
-      internalID: -4402444143473462226
+      spriteID: f1c932e96f9f7dc42bfdcdff6aada525
+      internalID: 1135007825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_2
+      name: old man reel in action Sheet_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 120
         y: 0
-        width: 40
-        height: 37
+        width: 60
+        height: 100
       alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+      pivot: {x: 0.5, y: 0.7}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0f29dfcf66986aab0800000000000000
-      internalID: -4997155661096840464
+      spriteID: 3a9e5d0ac8b38b044bb0442dc0efc5b7
+      internalID: 1036501043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_3
+      name: old man reel in action Sheet_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 180
         y: 0
-        width: 40
-        height: 37
+        width: 60
+        height: 100
       alignment: 9
-      pivot: {x: 0.3, y: 0.5}
+      pivot: {x: 0.5, y: 0.7}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5316417498b6b7880800000000000000
-      internalID: -8612171625068732107
+      spriteID: 8d85f5cdd0d82e043b21e2fb8af87c8b
+      internalID: 784847346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old man reel in action Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 60
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0e93f0cf78ee34fa0cfc345c0ab62a
+      internalID: 527100227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old man reel in action Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 60
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2594fce6ea75c304cb374b6f8c7aa16b
+      internalID: 815696800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: old man reel in action Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 60
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e722f20cae3e117489e4c1c8db311d65
+      internalID: 814660105
       vertices: []
       indices: 
       edges: []
@@ -200,7 +278,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ef681169e535749bc117447d7fa3cc
+    spriteID: af5a65f589ce8cb42ad36ddd89a6a13c
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +288,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SteamMan_fish_0: -4069303113167828489
-      SteamMan_fish_1: -4402444143473462226
-      SteamMan_fish_2: -4997155661096840464
-      SteamMan_fish_3: -8612171625068732107
+      old man reel in action Sheet_0: 416530049
+      old man reel in action Sheet_1: 1135007825
+      old man reel in action Sheet_2: 1036501043
+      old man reel in action Sheet_3: 784847346
+      old man reel in action Sheet_4: 527100227
+      old man reel in action Sheet_5: 815696800
+      old man reel in action Sheet_6: 814660105
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

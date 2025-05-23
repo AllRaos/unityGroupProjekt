@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2e2c2934e18259d40b305de2f8af0b21
+guid: 751141d4aa08a0345ab799ec1c151ed4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069303113167828489
-    second: SteamMan_fish_0
+      213: -4973515012461553833
+    second: GraveRobber_fish_0
   - first:
-      213: -4402444143473462226
-    second: SteamMan_fish_1
+      213: 749810958966425850
+    second: GraveRobber_fish_1
   - first:
-      213: -4997155661096840464
-    second: SteamMan_fish_2
+      213: 336148157268066531
+    second: GraveRobber_fish_2
   - first:
-      213: -8612171625068732107
-    second: SteamMan_fish_3
+      213: 8144819658858426703
+    second: GraveRobber_fish_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamMan_fish_0
+      name: GraveRobber_fish_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 8
         y: 0
-        width: 40
-        height: 37
+        width: 38
+        height: 34
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f98d30f06ee687c0800000000000000
-      internalID: -4069303113167828489
+      spriteID: 757182d62768afab0800000000000000
+      internalID: -4973515012461553833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_1
+      name: GraveRobber_fish_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 55
         y: 0
-        width: 40
-        height: 37
+        width: 39
+        height: 34
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e24f3cc606067e2c0800000000000000
-      internalID: -4402444143473462226
+      spriteID: af883e1381dd76a00800000000000000
+      internalID: 749810958966425850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_2
+      name: GraveRobber_fish_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 103
         y: 0
-        width: 40
-        height: 37
+        width: 39
+        height: 34
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f29dfcf66986aab0800000000000000
-      internalID: -4997155661096840464
+      spriteID: 3e08dd1d7fc3aa400800000000000000
+      internalID: 336148157268066531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SteamMan_fish_3
+      name: GraveRobber_fish_3
       rect:
         serializedVersion: 2
-        x: 150
+        x: 151
         y: 0
-        width: 40
-        height: 37
+        width: 39
+        height: 34
       alignment: 9
       pivot: {x: 0.3, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5316417498b6b7880800000000000000
-      internalID: -8612171625068732107
+      spriteID: f41ffdd9356380170800000000000000
+      internalID: 8144819658858426703
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 37ef681169e535749bc117447d7fa3cc
+    spriteID: 54efef1449137a748a8196ac9b1e2e2a
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SteamMan_fish_0: -4069303113167828489
-      SteamMan_fish_1: -4402444143473462226
-      SteamMan_fish_2: -4997155661096840464
-      SteamMan_fish_3: -8612171625068732107
+      GraveRobber_fish_0: -4973515012461553833
+      GraveRobber_fish_1: 749810958966425850
+      GraveRobber_fish_2: 336148157268066531
+      GraveRobber_fish_3: 8144819658858426703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
