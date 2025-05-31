@@ -1,5 +1,5 @@
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 3f;
 
     private Rigidbody2D rb;
-    private Animator animator;
+    public Animator animator;
     private Vector2 movement;
     private SpriteRenderer spriteRenderer;
 
@@ -24,16 +24,20 @@ public class PlayerController : MonoBehaviour
 
     public enum FishType { Plotva, Shchuka, Okun, Golavl }
     public enum FishSize { Small, Medium, Large }
+
     public bool isFishing = false;
     public float fishingTimer = 0f;
     public FishType currentFishType;
     public FishSize currentFishSize;
     public bool isNearWater = false;
 
+    public bool isMiniGameActive = false;
+
     void Awake()
     {
         Instance = this;
     }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !isMiniGameActive)
         {
             isInventoryOpen = !isInventoryOpen;
             inventoryPanel.SetActive(isInventoryOpen);
@@ -54,7 +58,8 @@ public class PlayerController : MonoBehaviour
                 InventoryUI.instance.UpdateInventoryUI(inventory.items);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Space) && !isFishing && IsNearWater())
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isFishing && !isMiniGameActive && IsNearWater())
         {
             StartFishing();
         }
@@ -68,7 +73,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!isDialogueActive)
+        if (!isDialogueActive && !isMiniGameActive)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -95,6 +100,7 @@ public class PlayerController : MonoBehaviour
             movement = Vector2.zero;
         }
     }
+
     private bool IsNearWater()
     {
         return isNearWater;
@@ -104,25 +110,28 @@ public class PlayerController : MonoBehaviour
     {
         isFishing = true;
         fishingTimer = 0f;
-        animator.SetTrigger("Fish"); 
+        animator.SetTrigger("Fish");
     }
 
     private void CatchFish()
     {
+        if (isMiniGameActive) return;
         isFishing = false;
-        currentFishType = (FishType)Random.Range(0, 4); 
-        currentFishSize = (FishSize)Random.Range(0, 3); 
+        currentFishType = (FishType)Random.Range(0, 4);
+        currentFishSize = (FishSize)Random.Range(0, 3);
         StartFishingGame(currentFishType, currentFishSize);
-        animator.SetTrigger("Hook");
     }
+
     private void StartFishingGame(FishType type, FishSize size)
     {
+        if (isMiniGameActive) return;
+        isMiniGameActive = true;
+
         switch (type)
         {
             case FishType.Plotva:
                 Debug.Log($"Запуск міні-гри для Плотви, складність: {size}");
                 GetComponent<FishingGame>().StartMiniGame(type, size);
-
                 break;
             case FishType.Shchuka:
                 Debug.Log($"Запуск міні-гри для Щуки, складність: {size}");
@@ -138,12 +147,19 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
     public void OnMiniGameSuccess()
     {
         Item fish = new Item(currentFishType.ToString(), "риба", currentFishSize.ToString(), 1);
         inventory.AddItem(fish);
         Debug.Log($"Риба {currentFishType} ({currentFishSize}) додана до інвентарю!");
     }
+
+    public void EndMiniGame()
+    {
+        isMiniGameActive = false;
+    }
+
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
@@ -195,8 +211,7 @@ public class PlayerController : MonoBehaviour
         if (quest != null)
         {
             quest.status = QuestStatus.Finished;
-            Debug.Log("����� ���������: " + quest.questName);
+            Debug.Log("Квест завершено: " + quest.questName);
         }
     }
 }
-

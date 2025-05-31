@@ -63,5 +63,7 @@ public class MemoryMiniGame : MonoBehaviour, IMiniGame
 
         Debug.Log("Час вийшов!");
         onGameComplete?.Invoke(false);
+        PlayerController.Instance.animator.SetTrigger("Hook");
+        PlayerController.Instance.EndMiniGame();
     }
 }

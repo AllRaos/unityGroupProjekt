@@ -119,9 +119,9 @@ public class DialogueManager : MonoBehaviour
         int finishedCount = 0;
         foreach (var q in player.activeQuests)
         {
-            if (q.questName != finalQuest.questName && q.status != QuestStatus.Finished)
+            if (q.questName != finalQuest.questName && q.status == QuestStatus.Finished)
             {
-                return false;
+                finishedCount++;
             }
         }
         return finishedCount >= 3;
