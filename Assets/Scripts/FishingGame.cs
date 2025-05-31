@@ -6,19 +6,21 @@ using static PlayerController;
 public class FishingGame : MonoBehaviour
 {
     public ReactionMiniGame reactionMiniGame;
-    public AccuracyMiniGame accuracyMiniGame;
-    public MemoryMiniGame memoryMiniGame;
+    public TensionZoneMinigame tensionZoneMinigame;
+    public RiverNavigationMinigame riverNavigationMinigame;
     public SpeedMiniGame speedMiniGame;
+    public FinalBossMinigame finalBossMiniGame;
     private Dictionary<FishType, IMiniGame> miniGames;
 
     void Start()
     {
         miniGames = new Dictionary<FishType, IMiniGame>
         {
-            { FishType.Plotva, reactionMiniGame },
-            { FishType.Shchuka, accuracyMiniGame },
-            { FishType.Okun, memoryMiniGame },
-            { FishType.Golavl, speedMiniGame }
+            { FishType.Globefish, reactionMiniGame },
+            { FishType.GreenAngelfish, tensionZoneMinigame },
+            { FishType.Smartfish, riverNavigationMinigame },
+            { FishType.GoldFish, speedMiniGame },
+            { FishType.Shark, finalBossMiniGame }
         };
     }
 

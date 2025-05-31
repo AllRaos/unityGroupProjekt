@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public GameObject backgroundShadow;
     private bool isInventoryOpen = false;
 
-    public enum FishType { Plotva, Shchuka, Okun, Golavl }
+    public enum FishType { GoldFish, Globefish, GreenAngelfish, Smartfish, Shark }
     public enum FishSize { Small, Medium, Large }
 
     public bool isFishing = false;
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!isDialogueActive && !isMiniGameActive)
+        if (!isDialogueActive && !isMiniGameActive && !isFishing)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
@@ -117,9 +118,18 @@ public class PlayerController : MonoBehaviour
     {
         if (isMiniGameActive) return;
         isFishing = false;
-        currentFishType = (FishType)Random.Range(0, 4);
-        currentFishSize = (FishSize)Random.Range(0, 3);
+        if (activeQuests.Any(q => q.questName == "Квест №4"))
+        {
+            currentFishType = FishType.Shark;
+            currentFishSize = FishSize.Large;
+        }
+        else
+        {
+            currentFishType = (FishType)Random.Range(0, 4);
+            currentFishSize = (FishSize)Random.Range(0, 3);
+        }
         StartFishingGame(currentFishType, currentFishSize);
+
     }
 
     private void StartFishingGame(FishType type, FishSize size)
@@ -129,20 +139,24 @@ public class PlayerController : MonoBehaviour
 
         switch (type)
         {
-            case FishType.Plotva:
-                Debug.Log($"Запуск міні-гри для Плотви, складність: {size}");
+            case FishType.Globefish:
+                Debug.Log($"Запуск міні-гри для рибки Надуваки, складність: {size}");
                 GetComponent<FishingGame>().StartMiniGame(type, size);
                 break;
-            case FishType.Shchuka:
-                Debug.Log($"Запуск міні-гри для Щуки, складність: {size}");
+            case FishType.GreenAngelfish:
+                Debug.Log($"Запуск міні-гри для Зеленої рибки, складність: {size}");
                 GetComponent<FishingGame>().StartMiniGame(type, size);
                 break;
-            case FishType.Okun:
-                Debug.Log($"Запуск міні-гри для Окуня, складність: {size}");
+            case FishType.Smartfish:
+                Debug.Log($"Запуск міні-гри для риби Розумник, складність: {size}");
                 GetComponent<FishingGame>().StartMiniGame(type, size);
                 break;
-            case FishType.Golavl:
-                Debug.Log($"Запуск міні-гри для Голавля, складність: {size}");
+            case FishType.GoldFish:
+                Debug.Log($"Запуск міні-гри для Золотої рибки, складність: {size}");
+                GetComponent<FishingGame>().StartMiniGame(type, size);
+                break;
+            case FishType.Shark:
+                Debug.Log($"Запуск міні-гри для Акули, складність: {size}");
                 GetComponent<FishingGame>().StartMiniGame(type, size);
                 break;
         }

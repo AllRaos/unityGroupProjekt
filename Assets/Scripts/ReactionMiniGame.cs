@@ -6,9 +6,9 @@ using static PlayerController;
 
 public class ReactionMiniGame : MonoBehaviour, IMiniGame
 {
-    public GameObject tileBackgroundPrefab; // Префаб білої плитки (Image)
-    public GameObject fishButtonPrefab;     // Префаб рибки (Button)
-    public Transform gridParent;            // Батьківський об’єкт для сітки
+    public GameObject tileBackgroundPrefab;
+    public GameObject fishButtonPrefab;
+    public Transform gridParent;
     public int gridSize = 5;
 
     private float fishLifetime;
@@ -17,6 +17,8 @@ public class ReactionMiniGame : MonoBehaviour, IMiniGame
     private int failCount = 0;
 
     private bool gridGenerated = false;
+    private Coroutine currentRoutine;
+
     private GameObject currentFishButton;
     private List<Transform> gridTiles = new List<Transform>();
     private System.Action<bool> onComplete;
@@ -28,27 +30,26 @@ public class ReactionMiniGame : MonoBehaviour, IMiniGame
         caughtFish = 0;
         failCount = 0;
 
-        // Складність
         switch (size)
         {
             case FishSize.Large:
-                fishLifetime = 1f;
-                fishToCatch = 5;
+                fishLifetime = 0.7f;
+                fishToCatch = 10;
                 break;
             case FishSize.Medium:
-                fishLifetime = 1.5f;
+                fishLifetime = 1f;
                 fishToCatch = 7;
                 break;
             case FishSize.Small:
-                fishLifetime = 2f;
-                fishToCatch = 10;
+                fishLifetime = 1.5f;
+                fishToCatch =5;
                 break;
         }
 
         if (!gridGenerated)
             GenerateGrid();
 
-        StartCoroutine(SpawnFishRoutine());
+        StartNextFish();
     }
 
     private void GenerateGrid()
@@ -64,28 +65,44 @@ public class ReactionMiniGame : MonoBehaviour, IMiniGame
         gridGenerated = true;
     }
 
+    private void StartNextFish()
+    {
+        if (currentRoutine != null)
+            StopCoroutine(currentRoutine);
+
+        currentRoutine = StartCoroutine(SpawnFishRoutine());
+    }
+
     private IEnumerator SpawnFishRoutine()
     {
-        yield return new WaitForSeconds(0.3f); // невелика пауза
+        yield return new WaitForSeconds(0.3f);
 
         int randomIndex = Random.Range(0, gridTiles.Count);
         Transform targetTile = gridTiles[randomIndex];
 
-        // Створення кнопки з рибкою
         currentFishButton = Instantiate(fishButtonPrefab, targetTile);
-        currentFishButton.GetComponent<Button>().onClick.AddListener(() => OnFishClicked());
+        currentFishButton.GetComponent<Button>().onClick.AddListener(OnFishClicked);
 
-        yield return new WaitForSeconds(fishLifetime);
+        float timer = 0f;
+        while (timer < fishLifetime)
+        {
+            if (currentFishButton == null)
+                yield break;
 
-        // Якщо гравець не натиснув
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         if (currentFishButton != null)
         {
             Destroy(currentFishButton);
+            currentFishButton = null;
             failCount++;
+
             if (failCount >= 2)
                 FinishGame(false);
             else
-                StartCoroutine(SpawnFishRoutine());
+                StartNextFish();
         }
     }
 
@@ -94,6 +111,8 @@ public class ReactionMiniGame : MonoBehaviour, IMiniGame
         if (currentFishButton == null) return;
 
         Destroy(currentFishButton);
+        currentFishButton = null;
+
         caughtFish++;
 
         if (caughtFish >= fishToCatch)
@@ -105,13 +124,18 @@ public class ReactionMiniGame : MonoBehaviour, IMiniGame
     private IEnumerator WaitBeforeNextSpawn()
     {
         yield return new WaitForSeconds(1f);
-        StartCoroutine(SpawnFishRoutine());
+        StartNextFish();
     }
 
     private void FinishGame(bool success)
     {
+        if (currentRoutine != null)
+            StopCoroutine(currentRoutine);
+
         if (currentFishButton != null)
             Destroy(currentFishButton);
+
+        currentFishButton = null;
 
         gameObject.SetActive(false);
         Debug.Log(success ? "Гру завершено успішно!" : "Програш.");
