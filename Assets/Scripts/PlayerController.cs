@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public GameObject backgroundShadow;
     private bool isInventoryOpen = false;
 
+    public List<Quest> finishedQuests = new List<Quest>();
+
     public enum FishType { GoldFish, Globefish, GreenAngelfish, Smartfish, Shark }
     public enum FishSize { Small, Medium, Large }
 
@@ -112,6 +114,12 @@ public class PlayerController : MonoBehaviour
         isFishing = true;
         fishingTimer = 0f;
         animator.SetTrigger("Fish");
+
+        MusicManager musicManager = FindAnyObjectByType<MusicManager>();
+        if (musicManager != null)
+        {
+            musicManager.PlayFishingMusic();
+        }
     }
 
     private void CatchFish()
@@ -167,11 +175,19 @@ public class PlayerController : MonoBehaviour
         Item fish = new Item(currentFishType.ToString(), "риба", currentFishSize.ToString(), 1);
         inventory.AddItem(fish);
         Debug.Log($"Риба {currentFishType} ({currentFishSize}) додана до інвентарю!");
+
+        CheckAllQuestsForCompletion();
     }
 
     public void EndMiniGame()
     {
         isMiniGameActive = false;
+
+        MusicManager musicManager = FindAnyObjectByType<MusicManager>();
+        if (musicManager != null)
+        {
+            musicManager.PlayMainMusic();
+        }
     }
 
     void FixedUpdate()
@@ -221,11 +237,39 @@ public class PlayerController : MonoBehaviour
 
     public void TryCompleteQuest(NPCInteraction npc)
     {
-        Quest quest = activeQuests.Find(q => q.questName == npc.quest.questName && q.status == QuestStatus.Completed);
-        if (quest != null)
+        if (npc.TryGiveReward())
         {
-            quest.status = QuestStatus.Finished;
-            Debug.Log("Квест завершено: " + quest.questName);
+            Quest quest = activeQuests.Find(q => q.questName == npc.quest.questName && q.status == QuestStatus.Completed);
+            if (quest != null)
+            {
+                quest.status = QuestStatus.Finished;
+                Debug.Log("Квест здано: " + quest.questName);
+
+                activeQuests.Remove(quest);
+                if (!finishedQuests.Contains(quest))
+                {
+                    finishedQuests.Add(quest);
+                }
+                QuestLogUI logUI = FindAnyObjectByType<QuestLogUI>();
+                if (logUI != null) logUI.RefreshUI();
+            }
+        }
+        else
+        {
+            Debug.Log("Потрібні предмети відсутні або квест вже виконано.");
         }
     }
+
+    private void CheckAllQuestsForCompletion()
+    {
+        foreach (Quest quest in activeQuests)
+        {
+            if (quest.status == QuestStatus.Active && quest.CheckIfQuestCompleted(inventory))
+            {
+                quest.status = QuestStatus.Completed;
+                Debug.Log($"Квест '{quest.questName}' автоматично позначено як виконаний!");
+            }
+        }
+    }
+
 }

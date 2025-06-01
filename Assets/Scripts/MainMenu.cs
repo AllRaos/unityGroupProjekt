@@ -1,17 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Slider soundSlider; 
-
-    private void Start()
-    {      
-        soundSlider.value = PlayerPrefs.GetFloat("GameVolume", 0.5f);
-        UpdateVolume(soundSlider.value);
-    }
-
+    public Slider slider;
     public void StartNewGame()
     {
         SceneManager.LoadScene("MainMenu");
@@ -25,10 +19,13 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
-    public void UpdateVolume(float volume)
+    public void UpdateVolume()
     {
-        PlayerPrefs.SetFloat("GameVolume", volume);
-        PlayerPrefs.Save();
-        AudioListener.volume = volume;
+        float volume = slider.value;
+        MusicManager musicManager = FindFirstObjectByType<MusicManager>();
+        if (musicManager != null)
+        {
+            musicManager.SetVolume(volume);
+        }
     }
 }

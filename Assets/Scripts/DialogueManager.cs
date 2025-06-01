@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public Button acceptButton;
     public Button declineButton;
     public Button exitButton;
+    public Button passQuestButton;
 
     private Quest currentQuest;
     private PlayerController player;
@@ -35,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         acceptButton.onClick.AddListener(AcceptQuest);
         declineButton.onClick.AddListener(DeclineQuest);
         exitButton.onClick.AddListener(CloseDialogue);
+        passQuestButton.onClick.AddListener(PassQuest);
     }
 
     public void StartDialogue(Quest quest, PlayerController playerRef, NPCInteraction npc)
@@ -53,6 +55,23 @@ public class DialogueManager : MonoBehaviour
             questDescriptionText.text = "Завершіть усі попередні завдання, щоб отримати це.";
             acceptButton.gameObject.SetActive(false);
             declineButton.gameObject.SetActive(false);
+            passQuestButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(true);
+        }
+        else if (quest.status == QuestStatus.Completed)
+        {
+            questDescriptionText.text = "Ви виконали умови завдання! Можете його здати.";
+            passQuestButton.gameObject.SetActive(true);
+            acceptButton.gameObject.SetActive(false);
+            declineButton.gameObject.SetActive(false);
+            exitButton.gameObject.SetActive(false);
+        }
+        else if (quest.status == QuestStatus.Finished)
+        {
+            questDescriptionText.text = "Цей квест уже завершено!";
+            acceptButton.gameObject.SetActive(false);
+            declineButton.gameObject.SetActive(false);
+            passQuestButton.gameObject.SetActive(false);
             exitButton.gameObject.SetActive(true);
         }
         else if (alreadyTaken)
@@ -60,23 +79,7 @@ public class DialogueManager : MonoBehaviour
             questDescriptionText.text = "Виконайте активне завдання, щоб отримати нове.";
             acceptButton.gameObject.SetActive(false);
             declineButton.gameObject.SetActive(false);
-            exitButton.gameObject.SetActive(true);
-        }
-        else if (quest.status == QuestStatus.Completed)
-        {
-            acceptButton.gameObject.SetActive(false);
-            declineButton.gameObject.SetActive(false);
-            exitButton.gameObject.SetActive(false);
-
-            player.TryCompleteQuest(currentNPC);
-            dialoguePanel.SetActive(false);
-            player.EndDialogue();
-        }
-        else if (quest.status == QuestStatus.Finished)
-        {
-            questDescriptionText.text = "Цей квест уже завершено!";
-            acceptButton.gameObject.SetActive(false);
-            declineButton.gameObject.SetActive(false);
+            passQuestButton.gameObject.SetActive(false);
             exitButton.gameObject.SetActive(true);
         }
         else
@@ -84,6 +87,7 @@ public class DialogueManager : MonoBehaviour
             questDescriptionText.text = quest.questDescription;
             acceptButton.gameObject.SetActive(true);
             declineButton.gameObject.SetActive(true);
+            passQuestButton.gameObject.SetActive(false);
             exitButton.gameObject.SetActive(false);
         }
     }
@@ -114,16 +118,26 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         player.EndDialogue();
     }
+
+    void PassQuest()
+    {
+        player.TryCompleteQuest(currentNPC);
+        dialoguePanel.SetActive(false);
+        player.EndDialogue();
+    }
+
     private bool AllOtherQuestsCompleted(PlayerController player, Quest finalQuest)
     {
         int finishedCount = 0;
-        foreach (var q in player.activeQuests)
+
+        foreach (var quest in player.finishedQuests)
         {
-            if (q.questName != finalQuest.questName && q.status == QuestStatus.Finished)
+            if (quest != finalQuest)
             {
                 finishedCount++;
             }
         }
+
         return finishedCount >= 3;
     }
 
