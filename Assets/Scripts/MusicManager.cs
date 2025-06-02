@@ -1,6 +1,4 @@
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {

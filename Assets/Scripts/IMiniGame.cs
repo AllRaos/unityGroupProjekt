@@ -1,4 +1,3 @@
-using UnityEngine;
 using static PlayerController;
 
 public interface IMiniGame
